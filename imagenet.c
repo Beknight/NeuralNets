@@ -36,6 +36,27 @@ BPNN *net;
   sscanf(NAME(img), "%[^_]_%[^_]_%[^_]_%[^_]_%d.%[^_]",
     userid, head, expression, eyes, &scale, photo);
 
+    if(!strcmp(head,"up")){
+        //000
+        net->target[1] = TARGET_LOW;
+        net->target[2] = TARGET_LOW;
+        net->target[3] = TARGET_LOW;
+    }else if(!strcmp(head,"right")){
+        //001
+        net->target[1] = TARGET_HIGH;
+        net->target[2] = TARGET_LOW;
+        net->target[3] = TARGET_LOW;
+    }else if(!strcmp(head,"left")){
+        //010
+      net->target[1] = TARGET_LOW;
+      net->target[2] = TARGET_HIGH;
+      net->target[3] = TARGET_LOW;
+    }else if(!strcmp(head,"straight")){
+        //100
+      net->target[1] = TARGET_LOW;
+      net->target[2] = TARGET_LOW;
+      net->target[3] = TARGET_HIGH;
+    }
 //  if (!strcmp(userid, "glickman")) {
 //    net->target[1] = TARGET_HIGH;  /* it's me, set target to HIGH */
 //  } else {
@@ -46,148 +67,148 @@ BPNN *net;
 //  }else{
 //    net->target[1] = TARGET_LOW;
 //  }
-  if(!strcmp(userid,"an2i")){
-      // 00000
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"at33")){
-      // 00001
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"boland")){
-      // 00010
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"bpm")){
-      //00011
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"ch4f")){
-      // 00100
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"cheyer")){
-      // 00101
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"choon")){
-      // 00110
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
+//  if(!strcmp(userid,"an2i")){
+//      // 00000
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"at33")){
+//      // 00001
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"boland")){
+//      // 00010
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"bpm")){
+//      //00011
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"ch4f")){
+//      // 00100
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"cheyer")){
+//      // 00101
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"choon")){
+//      // 00110
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
 
-  }else if(!strcmp(userid,"danieln")){
-      // 00111
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"glickman")){
-    //01000
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"karyadi")){
-      // 01001
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"kawamura")){
-      // 01010
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"kk49")){
-      // 01011
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"megak")){
-      // 01100
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"mitchell")){
-      // 01101
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"night")){
-      // 01110
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"phoebe")){
-      // 01111
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_HIGH;
-      net->target[4] = TARGET_HIGH;
-      net->target[5] = TARGET_LOW;
-  }else if(!strcmp(userid,"saavik")){
-      // 10000
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_HIGH;
-  }else if(!strcmp(userid,"steffi")){
-      // 10001
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_LOW;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_HIGH;
-  }else if(!strcmp(userid,"s224")){
-      // 10010
-      net->target[1] = TARGET_LOW;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_HIGH;
-  }else if(!strcmp(userid,"tanmo")){
-      // 10011
-      net->target[1] = TARGET_HIGH;
-      net->target[2] = TARGET_HIGH;
-      net->target[3] = TARGET_LOW;
-      net->target[4] = TARGET_LOW;
-      net->target[5] = TARGET_HIGH;
-  }
+//  }else if(!strcmp(userid,"danieln")){
+//      // 00111
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"glickman")){
+//    //01000
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"karyadi")){
+//      // 01001
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"kawamura")){
+//      // 01010
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"kk49")){
+//      // 01011
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"megak")){
+//      // 01100
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"mitchell")){
+//      // 01101
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"night")){
+//      // 01110
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"phoebe")){
+//      // 01111
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_HIGH;
+//      net->target[4] = TARGET_HIGH;
+//      net->target[5] = TARGET_LOW;
+//  }else if(!strcmp(userid,"saavik")){
+//      // 10000
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_HIGH;
+//  }else if(!strcmp(userid,"steffi")){
+//      // 10001
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_LOW;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_HIGH;
+//  }else if(!strcmp(userid,"s224")){
+//      // 10010
+//      net->target[1] = TARGET_LOW;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_HIGH;
+//  }else if(!strcmp(userid,"tanmo")){
+//      // 10011
+//      net->target[1] = TARGET_HIGH;
+//      net->target[2] = TARGET_HIGH;
+//      net->target[3] = TARGET_LOW;
+//      net->target[4] = TARGET_LOW;
+//      net->target[5] = TARGET_HIGH;
+//  }
 }
 
 

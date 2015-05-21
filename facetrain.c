@@ -132,7 +132,8 @@ char *netname;
 	make a net with:
 	  imgsize inputs, 4 hiden units, and 1 output unit
           */
-      net = bpnn_create(imgsize, 4, 5);
+//      net = bpnn_create(imgsize, 4, 5);
+          net = bpnn_create(imgsize, 6, 3);
     } else {
       printf("Need some images to train on, use -t\n");
       return;
